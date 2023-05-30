@@ -21,9 +21,9 @@ function createGrid(numSquares) {
       square.style.fontSize = fontSize;
       square.style.borderWidth = borderSize;
 
-      // Generate random 1 or 0
-      const randomNumber = Math.floor(Math.random() * 2);
-      square.textContent = randomNumber;
+      //   Generate random 1 or 0
+      //   const randomNumber = Math.floor(Math.random() * 2);
+      //   square.textContent = randomNumber;
 
       gridContainer.appendChild(square);
     }
@@ -42,3 +42,12 @@ gridSquares.forEach(function (square) {
     this.style.backgroundColor = "red";
   });
 });
+
+// create an event listener to monitor a button press
+// const buttonsSection = document.querySelector(".buttons");
+
+// const handleButtonClick = (e) => {
+//   console.log(e);
+// };
+
+// buttonsSection.addEventListener("click", handleButtonClick);

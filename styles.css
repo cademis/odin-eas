@@ -4,8 +4,9 @@
   width: 400px;
   height: 400px;
   background-color: #eee;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Add this line to horizontally center the container */
+  align-items: center; /* Add this line to vertically center the container */
+  margin: 0 auto; /* Add this line to center the container horizontally */
 }
 
 .grid-square {
@@ -19,4 +20,12 @@
 
 .hovered {
   background-color: blue;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px;
 }
