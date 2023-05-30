@@ -36,7 +36,7 @@ function createGrid(numSquares) {
   }
 }
 
-const addMouseoverListener = () => {
+const addMouseoverListener = (mode) => {
   const gridSquares = document.querySelectorAll(".grid-square");
   const rainbowColors = [
     "red",
@@ -50,9 +50,11 @@ const addMouseoverListener = () => {
   gridSquares.forEach((square) => {
     square.addEventListener("mouseover", () => {
       const randomIndex = Math.floor(Math.random() * rainbowColors.length);
-      //square.style.backgroundColor = "red";
-      square.style.backgroundColor = rainbowColors[randomIndex];
-      // square.style.animation = "rainbow 3s infinite linear";
+      if (mode === "rainbow") {
+        square.style.backgroundColor = rainbowColors[randomIndex];
+      } else {
+        square.style.backgroundColor = "red";
+      }
     });
   });
 };
@@ -61,13 +63,19 @@ addMouseoverListener();
 
 // create an event listener to monitor a button press event
 const buttonsSection = document.querySelector(".buttons");
-
 const handleButtonClick = (e) => {
-  newGridSize = +e.target.innerHTML;
-  console.log(newGridSize);
+  let newGridSize = +e.target.innerHTML;
   createGrid(newGridSize);
   addMouseoverListener();
-  S;
 };
 
 buttonsSection.addEventListener("click", handleButtonClick);
+
+// change to rainbow mode on button click
+const buttonsSection2 = document.querySelector(".rainbow");
+const handleButton2Click = () => {
+  createGrid(gridSize);
+  addMouseoverListener("rainbow");
+};
+
+buttonsSection2.addEventListener("click", handleButton2Click);
