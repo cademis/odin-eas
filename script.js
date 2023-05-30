@@ -1,5 +1,10 @@
+let gridSize = 32; // default grid size at window refresh
+
+createGrid(gridSize);
+
+// Create the grid
 function createGrid(numSquares) {
-  const gridContainer = document.querySelector("#gridContainer");
+  const gridContainer = document.querySelector(".grid-container");
 
   // Clear previous grid
   gridContainer.innerHTML = "";
@@ -30,24 +35,21 @@ function createGrid(numSquares) {
   }
 }
 
-createGrid(60);
+const gridSquares = document.querySelectorAll(".grid-square");
 
-// Retrieve all div elements with class "grid-square"
-var gridSquares = document.querySelectorAll(".grid-square");
-
-// Iterate over each div element and attach the hover event listener
-gridSquares.forEach(function (square) {
-  square.addEventListener("mouseover", function () {
-    // Change the color when the mouse is over the div
-    this.style.backgroundColor = "red";
+gridSquares.forEach((square) => {
+  square.addEventListener("mouseover", () => {
+    square.style.backgroundColor = "red";
   });
 });
 
-// create an event listener to monitor a button press
-// const buttonsSection = document.querySelector(".buttons");
+// create an event listener to monitor a button press event
+const buttonsSection = document.querySelector(".buttons");
 
-// const handleButtonClick = (e) => {
-//   console.log(e);
-// };
+const handleButtonClick = (e) => {
+  gridSize = +e.target.innerHTML;
+  console.log(gridSize);
+  //createGrid(+e.target.innerHTML);
+};
 
-// buttonsSection.addEventListener("click", handleButtonClick);
+buttonsSection.addEventListener("click", handleButtonClick);
