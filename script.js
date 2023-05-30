@@ -21,6 +21,7 @@ function createGrid(numSquares) {
     for (let j = 0; j < numSquares; j++) {
       const square = document.createElement("div");
       square.classList.add("grid-square");
+
       square.style.width = squareSize;
       square.style.height = squareSize;
       square.style.fontSize = fontSize;
@@ -37,9 +38,21 @@ function createGrid(numSquares) {
 
 const addMouseoverListener = () => {
   const gridSquares = document.querySelectorAll(".grid-square");
+  const rainbowColors = [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "indigo",
+    "violet",
+  ];
   gridSquares.forEach((square) => {
     square.addEventListener("mouseover", () => {
-      square.style.backgroundColor = "red";
+      const randomIndex = Math.floor(Math.random() * rainbowColors.length);
+      //square.style.backgroundColor = "red";
+      square.style.backgroundColor = rainbowColors[randomIndex];
+      // square.style.animation = "rainbow 3s infinite linear";
     });
   });
 };
