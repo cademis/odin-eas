@@ -35,21 +35,26 @@ function createGrid(numSquares) {
   }
 }
 
-const gridSquares = document.querySelectorAll(".grid-square");
-
-gridSquares.forEach((square) => {
-  square.addEventListener("mouseover", () => {
-    square.style.backgroundColor = "red";
+const addMouseoverListener = () => {
+  const gridSquares = document.querySelectorAll(".grid-square");
+  gridSquares.forEach((square) => {
+    square.addEventListener("mouseover", () => {
+      square.style.backgroundColor = "red";
+    });
   });
-});
+};
+
+addMouseoverListener();
 
 // create an event listener to monitor a button press event
 const buttonsSection = document.querySelector(".buttons");
 
 const handleButtonClick = (e) => {
-  gridSize = +e.target.innerHTML;
-  console.log(gridSize);
-  //createGrid(+e.target.innerHTML);
+  newGridSize = +e.target.innerHTML;
+  console.log(newGridSize);
+  createGrid(newGridSize);
+  addMouseoverListener();
+  S;
 };
 
 buttonsSection.addEventListener("click", handleButtonClick);
